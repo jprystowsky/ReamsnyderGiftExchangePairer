@@ -1,19 +1,20 @@
 package io.mapping.apps.reamsnydergifts;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
-
+import io.mapping.apps.reamsnydergifts.interfaces.Person;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class TestReamsnyderGiftExchangePairer {
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+
+public class HeuristicPairingAlgorithmTest {
 	
-	private static ReamsnyderGiftExchangePairer pairer;
+	private static HeuristicPairingAlgorithm pairer;
 	
 	@BeforeClass
 	public static void beforeClass() {
-		pairer = new ReamsnyderGiftExchangePairer();
+		pairer = (HeuristicPairingAlgorithm) HeuristicPairingAlgorithm.newPairer();
 	}
 
 	@Test
