@@ -2,7 +2,6 @@ package io.mapping.apps.reamsnydergifts;
 
 import io.mapping.apps.reamsnydergifts.interfaces.PairingAlgorithm;
 import io.mapping.apps.reamsnydergifts.interfaces.Person;
-import io.mapping.apps.reamsnydergifts.models.ConcretePerson;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,45 +9,30 @@ import java.util.List;
 
 
 public class HeuristicPairingAlgorithm implements PairingAlgorithm {
+
+	private List<Person> mPersons;
+
 	public static PairingAlgorithm newPairer() {
-		return new HeuristicPairingAlgorithm();
+		HeuristicPairingAlgorithm heuristicPairingAlgorithm = new HeuristicPairingAlgorithm();
+
+		heuristicPairingAlgorithm.mPersons = new ArrayList<Person>();
+
+		return heuristicPairingAlgorithm;
 	}
 
 	@Override
-	public List<Person> getPeople() {
-		Person jacob = ConcretePerson.newPerson("Jacob");
-		Person mary = ConcretePerson.newPerson("Mary");
-		ConcretePerson.partnerMutually(jacob, mary);
+	public List<Person> getPersons() {
+		return mPersons;
+	}
 
-		Person joe = ConcretePerson.newPerson("Joe");
-		Person ashley = ConcretePerson.newPerson("Ashley");
-		ConcretePerson.partnerMutually(joe, ashley);
-
-		Person jake = ConcretePerson.newPerson("Jake");
-		Person megan = ConcretePerson.newPerson("Megan");
-		ConcretePerson.partnerMutually(jake, megan);
-
-		Person lee = ConcretePerson.newPerson("Lee");
-		Person kristin = ConcretePerson.newPerson("Kristin");
-		ConcretePerson.partnerMutually(lee, kristin);
-
-		List<Person> people = new ArrayList<Person>();
-
-		people.add(jacob);
-		people.add(mary);
-		people.add(joe);
-		people.add(ashley);
-		people.add(jake);
-		people.add(megan);
-		people.add(lee);
-		people.add(kristin);
-
-		return people;
+	@Override
+	public void setPersons(List<Person> persons) {
+		mPersons = persons;
 	}
 
 	@Override
 	public List<Person> doPairing() {
-		List<Person> people = getPeople();
+		List<Person> people = getPersons();
 
 		int iterationCount = 0;
 		int assignedCount = 0;
