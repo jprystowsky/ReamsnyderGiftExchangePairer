@@ -68,4 +68,12 @@ public interface Person {
 	 * @return a Boolean describing whether or not this person is another person's pair
 	 */
 	public Person setWasPaired(Boolean b);
+
+	/**
+	 * Returns whether or not this person has a pair, i.e., whether or not there exists a person p1 in the graph of
+	 * persons such that getPair(this) = p1.
+	 *
+	 * @return whether or not this person already has a pair
+	 */
+	public Boolean isPaired();
 }

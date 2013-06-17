@@ -99,7 +99,8 @@ public class ConcretePerson implements Person {
 		return this;
 	}
 
-	public boolean isPaired() {
+	@Override
+	public Boolean isPaired() {
 		return this.mPair != null;
 	}
 
