@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class TestReamsnyderGiftExchangePairer {
 	
-	static ReamsnyderGiftExchangePairer pairer;
+	private static ReamsnyderGiftExchangePairer pairer;
 	
 	@BeforeClass
 	public static void beforeClass() {
@@ -18,19 +18,19 @@ public class TestReamsnyderGiftExchangePairer {
 
 	@Test
 	public void testGetPeople() {
-		List<ConcretePerson> people = pairer.getPeople();
+		List<Person> people = pairer.getPeople();
 		assertTrue(people.size() > 0);
 		assertTrue(people.size() % 2 == 0);
 	}
 	
 	@Test
 	public void testDoPairing() {
-		List<ConcretePerson> people = pairer.doPairing();
-		for (ConcretePerson person : people) {
-			assertTrue(person.isPaired());
+		List<Person> people = pairer.doPairing();
+		for (Person person : people) {
+			assertTrue(person.getWasPaired());
 			
 			int assignedTo = 0;
-			for (ConcretePerson otherPerson : people) {
+			for (Person otherPerson : people) {
 				if (otherPerson.getPair().equals(person)) {
 					assignedTo++;
 				}
