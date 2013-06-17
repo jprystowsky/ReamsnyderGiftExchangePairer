@@ -2,35 +2,34 @@ package io.mapping.apps.reamsnydergifts;
 
 import static org.junit.Assert.*;
 
-import io.mapping.apps.reamsnydergifts.Person;
 import org.junit.Test;
 
-public class PersonTest {
+public class ConcretePersonTest {
 	
 	@Test
 	public void testPartnerMutually() {
-		Person personOne = new Person();
-		Person personTwo = new Person();
+		ConcretePerson personOne = new ConcretePerson();
+		ConcretePerson personTwo = new ConcretePerson();
 		
-		Person.partnerMutually(personOne, personTwo);
+		ConcretePerson.partnerMutually(personOne, personTwo);
 		assertSame(personOne.getPartner(), personTwo);
 		assertSame(personTwo.getPartner(), personOne);
 	}
 
 	@Test
 	public void testPerson() {
-		Person testPerson = new Person();
+		ConcretePerson testPerson = new ConcretePerson();
 		assertNull(testPerson.getName());
 		assertNull(testPerson.getPair());
 		assertNull(testPerson.getPartner());
 		
-		testPerson = new Person("Jacob");
+		testPerson = new ConcretePerson("Jacob");
 		assertEquals(testPerson.getName(), "Jacob");
 	}
 	
 	@Test
 	public void testSetName() {
-		Person testPerson = new Person().setName("Jacob");
+		ConcretePerson testPerson = (ConcretePerson) new ConcretePerson().setName("Jacob");
 		assertEquals(testPerson.getName(), "Jacob");
 		
 		testPerson.setName(null);
@@ -39,11 +38,11 @@ public class PersonTest {
 
 	@Test
 	public void testSetPartner() {
-		Person testPersonPartner = new Person();
-		Person testPerson = new Person().setPartner(testPersonPartner);
+		ConcretePerson testPersonPartner = new ConcretePerson();
+		ConcretePerson testPerson = (ConcretePerson) new ConcretePerson().setPartner(testPersonPartner);
 		assertSame(testPerson.getPartner(), testPersonPartner);
 		
-		Person testPairPerson = new Person();
+		ConcretePerson testPairPerson = new ConcretePerson();
 		testPerson.setPair(testPairPerson);
 		testPerson.setPartner(testPairPerson);
 		assertNotSame(testPerson.getPartner(), testPairPerson);
@@ -54,11 +53,11 @@ public class PersonTest {
 
 	@Test
 	public void testSetPair() {
-		Person testPersonPair = new Person();
-		Person testPerson = new Person().setPair(testPersonPair);
+		ConcretePerson testPersonPair = new ConcretePerson();
+		ConcretePerson testPerson = (ConcretePerson) new ConcretePerson().setPair(testPersonPair);
 		assertSame(testPerson.getPair(), testPersonPair);
 		
-		Person testPartnerPerson = new Person();
+		ConcretePerson testPartnerPerson = new ConcretePerson();
 		testPerson.setPartner(testPartnerPerson);
 		testPerson.setPair(testPartnerPerson);
 		assertNotSame(testPerson.getPair(), testPartnerPerson);
@@ -66,29 +65,29 @@ public class PersonTest {
 	
 	@Test
 	public void testGetWasPaired() {
-		Person testPerson = new Person();
+		ConcretePerson testPerson = new ConcretePerson();
 		assertFalse(testPerson.getWasPaired());
 		
-		Person testOtherPerson = new Person();
+		ConcretePerson testOtherPerson = new ConcretePerson();
 		testOtherPerson.setPair(testPerson);
 		assertTrue(testPerson.getWasPaired());
 	}
 	
 	@Test
 	public void testIsPaired() {
-		Person testPerson = new Person();
+		ConcretePerson testPerson = new ConcretePerson();
 		assertFalse(testPerson.isPaired());
 		
-		Person testPairPerson = new Person();
+		ConcretePerson testPairPerson = new ConcretePerson();
 		testPerson.setPair(testPairPerson);
 		assertTrue(testPerson.isPaired());
 	}
 	
 	@Test
 	public void testToString() {
-		Person testPerson = new Person("Jacob");
-		Person testPersonPartner = new Person("Mary");
-		Person testPersonPair = new Person("Joe");
+		ConcretePerson testPerson = new ConcretePerson("Jacob");
+		ConcretePerson testPersonPartner = new ConcretePerson("Mary");
+		ConcretePerson testPersonPair = new ConcretePerson("Joe");
 		testPerson.setPartner(testPersonPartner).setPair(testPersonPair);
 		
 		assertEquals(testPerson.toString(), "Jacob is assigned Joe");

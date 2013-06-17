@@ -6,35 +6,32 @@ import java.util.ArrayList;
 
 public class ReamsnyderGiftExchangePairer {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		ReamsnyderGiftExchangePairer pairer = new ReamsnyderGiftExchangePairer();
-		List<Person> people = pairer.doPairing();
+		List<ConcretePerson> people = pairer.doPairing();
 		
-		for (Person p : people) {
+		for (ConcretePerson p : people) {
 			System.out.println(p);
 		}
 	}
 	
-	protected List<Person> doPairing() {
-		List<Person> people = getPeople();
+	protected List<ConcretePerson> doPairing() {
+		List<ConcretePerson> people = getPeople();
 		
 		int iterationCount = 0;
 		int assignedCount = 0;
 		do {
-			for (Person person : people) {
+			for (ConcretePerson person : people) {
 				if (person.getPair() != null) {
 					continue;
 				}
 				
-				List<Person> otherPeople = new ArrayList<Person>(people);
+				List<ConcretePerson> otherPeople = new ArrayList<ConcretePerson>(people);
 				
 				otherPeople.remove(person);
 				Collections.shuffle(otherPeople);
 				
-				for (Person consideration : otherPeople) {
+				for (ConcretePerson consideration : otherPeople) {
 					if (!consideration.getPartner().equals(person)
 							&& !consideration.getWasPaired()) {
 						person.setPair(consideration);
@@ -54,24 +51,24 @@ public class ReamsnyderGiftExchangePairer {
 		return people;
 	}
 	
-	protected List<Person> getPeople() {
-		Person jacob = new Person("Jacob");
-		Person mary = new Person("Mary");
-		Person.partnerMutually(jacob, mary);
+	protected List<ConcretePerson> getPeople() {
+		ConcretePerson jacob = new ConcretePerson("Jacob");
+		ConcretePerson mary = new ConcretePerson("Mary");
+		ConcretePerson.partnerMutually(jacob, mary);
 		
-		Person joe = new Person("Joe");
-		Person ashley = new Person("Ashley");
-		Person.partnerMutually(joe, ashley);
+		ConcretePerson joe = new ConcretePerson("Joe");
+		ConcretePerson ashley = new ConcretePerson("Ashley");
+		ConcretePerson.partnerMutually(joe, ashley);
 		
-		Person jake = new Person("Jake");
-		Person megan = new Person("Megan");
-		Person.partnerMutually(jake, megan);
+		ConcretePerson jake = new ConcretePerson("Jake");
+		ConcretePerson megan = new ConcretePerson("Megan");
+		ConcretePerson.partnerMutually(jake, megan);
 		
-		Person lee = new Person("Lee");
-		Person kristin = new Person("Kristin");
-		Person.partnerMutually(lee, kristin);
+		ConcretePerson lee = new ConcretePerson("Lee");
+		ConcretePerson kristin = new ConcretePerson("Kristin");
+		ConcretePerson.partnerMutually(lee, kristin);
 		
-		List<Person> people = new ArrayList<Person>();
+		List<ConcretePerson> people = new ArrayList<ConcretePerson>();
 		
 		people.add(jacob);
 		people.add(mary);
