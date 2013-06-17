@@ -7,11 +7,18 @@ import java.util.List;
  */
 public interface PairingAlgorithm {
 	/**
+	 * Sets the list of persons to be paired together.
+	 *
+	 * @param l the list of persons to be paired together
+	 */
+	void setPersons(List<Person> l);
+
+	/**
 	 * Returns a list of persons (or concrete implementations thereof) to be paired together.
 	 *
 	 * @return a list of persons who have not yet been paired
 	 */
-	List<Person> getPeople();
+	List<Person> getPersons();
 
 	/**
 	 * Returns a list of persons who have been paired together for gift-giving purposes.
