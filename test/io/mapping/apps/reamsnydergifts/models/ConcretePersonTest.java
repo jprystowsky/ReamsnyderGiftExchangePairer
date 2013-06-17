@@ -1,8 +1,8 @@
-package io.mapping.apps.reamsnydergifts;
-
-import static org.junit.Assert.*;
+package io.mapping.apps.reamsnydergifts.models;
 
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class ConcretePersonTest {
 
