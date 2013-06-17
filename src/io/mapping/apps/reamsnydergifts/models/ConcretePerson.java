@@ -1,4 +1,6 @@
-package io.mapping.apps.reamsnydergifts;
+package io.mapping.apps.reamsnydergifts.models;
+
+import io.mapping.apps.reamsnydergifts.interfaces.Person;
 
 /**
  * A concrete implementation of the Person interface. Nothing fancy.
