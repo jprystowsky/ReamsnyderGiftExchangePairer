@@ -17,5 +17,4 @@ public interface Person {
     public Boolean getWasPaired();
 
     public Person setWasPaired(Boolean b);
-
 }
