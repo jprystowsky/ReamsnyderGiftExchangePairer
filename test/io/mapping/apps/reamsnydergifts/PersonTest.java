@@ -1,7 +1,8 @@
-package io.mapping;
+package io.mapping.apps.reamsnydergifts;
 
 import static org.junit.Assert.*;
 
+import io.mapping.apps.reamsnydergifts.Person;
 import org.junit.Test;
 
 public class PersonTest {

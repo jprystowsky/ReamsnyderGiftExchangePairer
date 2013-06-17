@@ -1,9 +1,11 @@
-package io.mapping;
+package io.mapping.apps.reamsnydergifts;
 
 import static org.junit.Assert.*;
 
 import java.util.List;
 
+import io.mapping.apps.reamsnydergifts.Person;
+import io.mapping.apps.reamsnydergifts.ReamsnyderGiftExchangePairer;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

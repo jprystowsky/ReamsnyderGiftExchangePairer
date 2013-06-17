@@ -1,4 +1,4 @@
-package io.mapping;
+package io.mapping.apps.reamsnydergifts;
 
 public class Person {
 

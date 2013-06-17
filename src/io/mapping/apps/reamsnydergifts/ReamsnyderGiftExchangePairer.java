@@ -1,4 +1,4 @@
-package io.mapping;
+package io.mapping.apps.reamsnydergifts;
 
 import java.util.Collections;
 import java.util.List;
