@@ -7,6 +7,10 @@ public class ConcretePerson implements Person {
     private Person mPair;
     private boolean mWasPaired;
 
+    public static Person newPerson(String name) {
+        return new ConcretePerson(name);
+    }
+
     public static void partnerMutually(Person p1, Person p2) {
         p1.setPartner(p2);
         p2.setPartner(p1);
@@ -15,7 +19,7 @@ public class ConcretePerson implements Person {
     public ConcretePerson() {
     }
 
-    public ConcretePerson(String name) {
+    private ConcretePerson(String name) {
         setName(name);
     }
 
