@@ -1,4 +1,4 @@
-package io.mapping.apps.reamsnydergifts;
+package io.mapping.apps.reamsnydergifts.interfaces;
 
 /**
  * Provides an interface representing a physical person that can have a partner (i.e., romantically), which is a person
